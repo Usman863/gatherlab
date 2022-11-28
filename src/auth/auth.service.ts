@@ -48,13 +48,13 @@ export class AuthService {
     };
   }
 
-  async validateUser(payload: JwtPayload): Promise<UserDto> {
-    const user = await this.usersService.findByPayload(payload);
-    if (!user) {
-      throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);
-    }
-    return user;
-  }
+  // async validateUser(payload: JwtPayload): Promise<UserDto> {
+  //   const user = await this.usersService.findByPayload(payload);
+  //   if (!user) {
+  //     throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);
+  //   }
+  //   return user;
+  // }
 
   private _createToken({ username }: UserDto): any {
     const expiresIn = process.env.EXPIRESIN;

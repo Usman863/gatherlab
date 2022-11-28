@@ -4,15 +4,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
 import { ChatModule } from './chat/chat.module';
 import { StreamingModule } from './streaming/streaming.module';
 import { UsersModule } from './users/users.module';
+import { AgoraModule } from './agora/agora.module';
+import { SocialAuthModule } from './social-auth/social-auth.module';
 
 @Module({
   controllers: [AppController],
   providers: [AppService],
-  imports: [ChatModule, StreamingModule,MongooseModule.forRoot('mongodb://localhost/datingapp')//AuthModule
+  imports: [ChatModule, UsersModule, StreamingModule,MongooseModule.forRoot('mongodb://localhost/datingapp'), AgoraModule, SocialAuthModule//AuthModule
   //   TypeOrmModule.forRoot({
   //   type: 'mysql',
   //   host: 'localhost',
